@@ -1,29 +1,3 @@
-.home-page {
-    flex: 1;
-    padding: 40px;
-    /* display: flex; */
-    flex-direction: column;
-    /* gap: 40px; */
-    overflow-y: scroll;
-    height: 100vh;
-}
-
-.home-page section {
-    margin-bottom: 40px;
-}
-
-.home-page .heading {
-    display: flex;
-    gap: 10px;
-    /* background: #000; */
-    justify-content: space-between;
-    align-items: center;
-}
-
-.caption {
-    color: grey;
-}
-
 .home-page .heading button {
     height: 38px;
     padding: 0 10px;

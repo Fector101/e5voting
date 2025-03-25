@@ -33,6 +33,35 @@ body>#root {
     /* flex-direction: column; */
   
 }
+
+
+.page {
+    flex: 1;
+    padding: 40px;
+    /* display: flex; */
+    flex-direction: column;
+    /* gap: 40px; */
+    overflow-y: scroll;
+    height: 100vh;
+}
+
+.page section {
+    margin-bottom: 40px;
+}
+
+.page .heading {
+    display: flex;
+    gap: 10px;
+    /* background: #000; */
+    justify-content: space-between;
+    align-items: center;
+}
+
+.caption {
+    color: grey;
+}
+
+
 .primary-btn{
     background-color: var(--primary-btn-bg);
     color: white;
