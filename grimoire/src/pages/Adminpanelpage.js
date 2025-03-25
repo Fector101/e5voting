@@ -1,4 +1,4 @@
-import { CheckCircle, Dot, Mail } from 'lucide-react'
+import { CheckCircle, Dot, Mail, Plus } from 'lucide-react'
 import '../components/css/forgotpspage.css'
 import { useEffect, useState } from 'react'
 import { InputCom } from '../components/ui/form-comps/Inputs'
@@ -184,52 +184,19 @@ function EnterMethod({ email, user_choice_, setChoice, setSlide }) {
         </>
     )
 }
-export default function ForgotPSPage({ email, username, phone_no }) {
-    const identifier = username || email || phone_no
-    const [user_choice, setUserChoice] = useState('reset-ps') // 'sign-in' | 'reset-ps'
-    const [pos, setPos] = useState(0) // 0|1|2
-    username = 1
-    email = 'fabi*****063@gmail.com'
-    // if `username` get right and wrong emails and display choices
-    // `email` sent back will be genrated by from the username
-    //  that is the first and last 4 letters for the email and i won't send link if email is wrong 
-    // so i won't be flagged as spammer
-    function returnTab(pos) {
-        let tab;
-        if (pos === 0) {
-            tab = <EnterMethod setSlide={setPos} />
-        }
-        else if (pos === 1) {
-            tab = <ChoicesBox email={email} user_choice={user_choice} setSlide={setPos} setChoice={setUserChoice} />
-        }
-        else if (pos === 2) {
-            tab = <SentResetPSEmail user_choice={user_choice} email={email} />
-        }
-        return tab
-    }
+export default function Adminpanelpage({ email, username, phone_no }) {
+    
     return (
-        <div className="forgot-password-page flex-page margin-auto flex">
-            <h1>Forgot Password {identifier} </h1>
-            <div className="flex prompt-box">
-                {returnTab(pos)}
-
-                {/* <div className="login-without-ps">
-
-                    <h3>Login without Password</h3>
-                    {
-                        username ?
-                            <SendRightEmail />
-                            : <></>
-                    }
-
-                </div> */}
-
-            </div>
-            <span className='flex progress-box'>
-                <button onClick={() => setPos(0)}> <Dot className={pos === 0 ? 'active' : ''} /> </button>
-                <button onClick={() => setPos(1)}> <Dot className={pos === 1 ? 'active' : ''} /> </button>
-                <button onClick={() => setPos(2)}> <Dot className={pos === 2 ? 'active' : ''} /> </button>
-            </span>
+        <div className="page">
+            <section className="heading">
+                <div>
+                    <h1>Admin Panel</h1>
+                    <p className="caption">Manage polls and view results</p>
+                </div>
+                <button className="primary-btn">
+                    <Plus/>
+                    Create New Poll</button>
+            </section>
         </div >
     )
 }

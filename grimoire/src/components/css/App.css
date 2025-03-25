@@ -43,10 +43,21 @@ body>#root {
     overflow-y: scroll;
     height: 100vh;
 }
-
-.page section {
-    margin-bottom: 40px;
+.page .heading button {
+    height: 38px;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+.page .heading button svg{
+    --size: 20px;
+    margin-right: 5px;
+    width: var(--size);
+    height: var(--size);
+}
+
 
 .page .heading {
     display: flex;
@@ -54,6 +65,9 @@ body>#root {
     /* background: #000; */
     justify-content: space-between;
     align-items: center;
+}
+.page section {
+    margin-bottom: 40px;
 }
 
 .caption {

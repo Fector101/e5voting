@@ -1,17 +1,3 @@
-.home-page .heading button {
-    height: 38px;
-    padding: 0 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.home-page .heading button svg{
-    --size: 20px;
-    margin-right: 5px;
-    width: var(--size);
-    height: var(--size);
-}
 
 .preview-stats-box {
     display: flex;
