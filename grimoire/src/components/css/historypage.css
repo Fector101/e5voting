@@ -16,3 +16,43 @@
     font-size: 15px;
 
 }
+
+
+.history-page .voting-stats-card .row {
+    justify-content: space-between;
+}
+
+.history-page .voting-stats-card .badge {
+    font-size: 11px;
+    width: 70px;
+    height: 25px;
+    color: green;
+    border: 1px solid #8bd58b;
+    background-color: #d0ffb6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-weight: 700;
+    padding-right: 8px;
+}
+
+.history-page .voting-stats-card .badge svg {
+    --size: 30px;
+    /* width: var(--size); */
+    height: var(--size);
+}
+
+.history-page .voting-stats-card .row .caption {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+}
+
+.history-page .voting-stats-card .row .caption svg {
+    margin-right: 8px;
+    --size: 17px;
+    width: var(--size);
+    height: var(--size);
+}
+
