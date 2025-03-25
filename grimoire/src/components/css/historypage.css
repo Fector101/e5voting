@@ -71,7 +71,7 @@
 @media screen and (max-width:500px) {
 
     .history-page.page{
-        padding: 20px;
+        /* padding: 20px; */
     }
     .history-page .recent-votings .voting-stats-card{
         width: 100%;
