@@ -7,12 +7,11 @@
     padding: 15px;
 }
 .polls-section .head{
-    /* background: #000; */
-
-    /* align-items: center; */
-    /* align-content: center; */
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 10px;
+    align-items: center;
     justify-content: space-between;
-    /* justify-content: center; */
 }
 .polls-section .head h3{
     font-size: 15px;
@@ -71,7 +70,8 @@
 .polls-section table td,.polls-section table th{
     text-align: left;
 }
-.polls-section table tbody tr td:last-child,.polls-section table tr th:last-child{
+.polls-section table tbody tr td:last-child,.polls-section table tr th:last-child,table tbody tr td:nth-child(4),table tr th:nth-child(4){
+    /* background: #000; */
     text-align: center;
 }
 .polls-section table tbody tr .date{
@@ -146,17 +146,20 @@
     border: none;
 }
 
-
 @media screen and (max-width:460px) {    
     .adminpage .heading {
         flex-wrap: wrap;
         gap: 15px;
-        /* height: 38px;
-        width: 250px; */
-        /* padding: 0 5px; */
     }
     .adminpage.page{
         padding-left:  25px;
         padding-right: 25px;
     }
+   
+table tr th:nth-child(2),table tr th:nth-child(3),table tr th:nth-child(4){
+    display: none;
+}
+table tr td:nth-child(2),table tr td:nth-child(3),table tr td:nth-child(4){
+    display: none;
+} 
 }
