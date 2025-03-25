@@ -1,23 +1,25 @@
-
-.polls-section{
+.polls-section {
     display: flex;
     flex-direction: column;
     border-radius: 10px;
     box-shadow: 1px 1px 1px 1px rgba(196, 196, 196, 0.748);
     padding: 15px;
 }
-.polls-section .head{
+
+.polls-section .head {
     flex-wrap: wrap;
     gap: 10px;
     margin-bottom: 10px;
     align-items: center;
     justify-content: space-between;
 }
-.polls-section .head h3{
+
+.polls-section .head h3 {
     font-size: 15px;
     font-weight: 500;
 }
-.polls-section .row.tab-btns{
+
+.polls-section .row.tab-btns {
     display: flex;
     border-radius: 5px;
     background: #8d8c8c59;
@@ -25,12 +27,14 @@
     padding: 4px;
     border-radius: 7px;
 }
-.polls-section .row.tab-btns button.active{
+
+.polls-section .row.tab-btns button.active {
     color: black;
     background-color: white;
     cursor: pointer;
 }
-.polls-section .row.tab-btns button{
+
+.polls-section .row.tab-btns button {
     /* width: 100px; */
     border-radius: inherit;
     padding: 0 5px;
@@ -41,18 +45,21 @@
     /* border: 1px solid grey; */
     height: 28px;
 }
-.polls-section .row.tab-btns button svg{
+
+.polls-section .row.tab-btns button svg {
     --size: 18px;
     width: var(--size);
     height: var(--size);
 }
-.polls-section .sub-text{
+
+.polls-section .sub-text {
     /* background: #000; */
     align-items: center;
     gap: 10px;
     font-size: 14px;
 }
-.polls-section .sub-text svg{
+
+.polls-section .sub-text svg {
     --size: 18px;
     width: var(--size);
     height: var(--size);
@@ -60,36 +67,46 @@
 }
 
 /* table */
-.polls-section table{
+.polls-section table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 10px;
     /* border: 1px solid grey; */
     /* background-color: #008000;  */
 }
-.polls-section table td,.polls-section table th{
+
+.polls-section table td,
+.polls-section table th {
     text-align: left;
 }
-.polls-section table tbody tr td:last-child,.polls-section table tr th:last-child,table tbody tr td:nth-child(4),table tr th:nth-child(4){
+
+.polls-section table tbody tr td:last-child,
+.polls-section table tr th:last-child,
+table tbody tr td:nth-child(4),
+table tr th:nth-child(4) {
     /* background: #000; */
     text-align: center;
 }
-.polls-section table tbody tr .date{
+
+.polls-section table tbody tr .date {
 
     font-size: 12px;
 }
+
 .polls-section table tbody tr .users-row {
     font-size: 12px;
     /* display: flex;/
     height: 100%;
     background: #000;*/
 }
-.polls-section table tbody tr .users-row svg{
+
+.polls-section table tbody tr .users-row svg {
     --size: 15px;
     color: #777;
     width: var(--size);
     height: var(--size);
 }
+
 .polls-section table tbody tr {
     font-size: 14px;
     height: 80px;
@@ -97,6 +114,7 @@
     /* border-bottom: 1px solid green; */
 
 }
+
 .poll-title {
     display: flex;
     align-items: center;
@@ -146,20 +164,36 @@
     border: none;
 }
 
-@media screen and (max-width:460px) {    
+@media screen and (max-width:460px) {
     .adminpage .heading {
         flex-wrap: wrap;
         gap: 15px;
     }
-    .adminpage.page{
-        padding-left:  25px;
+
+    .adminpage.page {
+        padding-left: 25px;
         padding-right: 25px;
     }
-   
-table tr th:nth-child(2),table tr th:nth-child(3),table tr th:nth-child(4){
-    display: none;
-}
-table tr td:nth-child(2),table tr td:nth-child(3),table tr td:nth-child(4){
-    display: none;
-} 
+
+    table tr th:nth-child(2),
+    table tr th:nth-child(3),
+    table tr th:nth-child(4) {
+        display: none;
+    }
+
+    table tr td:nth-child(2),
+    table tr td:nth-child(3),
+    table tr td:nth-child(4) {
+        display: none;
+    }
+
+    .poll-title {
+        font-size: 12px;
+    }
+
+    .action-btn {
+        padding: 6px 6px;
+        font-size: 12px;
+    }
+
 }
