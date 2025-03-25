@@ -61,7 +61,7 @@ function App() {
       <Routes>
         {/* <Route path="/signup" element={ <SignupPage /> }/> */}
         {/* <Route path="/login" element={ <LoginPage /> }/> */}
-        <Route path="/" element={ <Loginpage/>}/>
+        <Route path="/login" element={ <Loginpage/>}/>
         <Route path="/home" element={ <Homepage top_movies_data__={top_movies_data}/> }/>
         <Route path="/polls" element={ <Pollspage /> }/>
         <Route path="/history" element={ <Historypage /> }/>
