@@ -1,0 +1,155 @@
+/* <section>
+            <div className="header">
+                <Vote/>
+                <h3>Student Vote</h3>
+            </div>
+            <button>Login</button>
+        </section>
+        <section>
+            <h1>Student Voting <span>Platform</span></h1> 
+            <p>An easy way to create polls, collect votes, and analyze results for student organizations and educational institutions.</p>
+            <button>Get started <ArrowRight/></button>
+        </section>
+        <section>
+            <div className="feature">
+                <h3>Create Polls</h3>
+                <p className="caption">Easily create custom polls with multiple options to gather feedback.</p>
+            </div>
+            <div className="feature">
+                <h3>Collect Votes</h3>
+                <p className="caption">Share your polls with your audience and collect votes in real-time.</p>
+            </div>
+            <div className="feature">
+                <h3>Analyze Results</h3>
+                <p className="caption">View detailed results and analyze voting patterns to make informed decisions.</p>
+            </div>
+        </section> */
+.landingpage.page {
+    padding: 0;
+    padding-bottom: 30px;
+
+}
+
+.landingpage .header {
+    /* background: #000; */
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.landingpage .header .row {
+    gap: 10px;
+    align-items: center;
+}
+
+.landingpage .header .login-btn {
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #f5f5f5;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.landingpage section:not(.header) {
+    padding: 0 20px;
+}
+
+.landingpage .main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    /* justify-content: center; */
+    /* background: #000; */
+}
+
+.landingpage .caption {
+    color: #676666;
+    font-size: 15px;
+}
+
+.landingpage .main h1 {
+    font-size: 2.8rem;
+}
+
+.landingpage .main span {
+    /* color: #007bff; */
+    color: var(--primary-btn-bg);
+
+
+}
+
+.landingpage .main p {
+    margin-top: 10px;
+    line-height: 25px;
+    width: 80%;
+}
+
+.landingpage .main button {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 140px;
+    ;
+}
+
+.landingpage .main button svg {
+    --size: 20px;
+    width: var(--size);
+    height: var(--size);
+}
+
+.landingpage .features-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.landingpage .features-box .feature {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+    width: 300px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px 1px rgba(161, 161, 161, 0.548);
+    /* background: #000; */
+    font-size: 15px;
+}
+
+.landingpage .features-box .feature .caption {
+    font-size: 14px;
+}
+
+@media screen and (max-width:500px) {
+
+    .landingpage section:not(.header) {
+        padding: 0 25px;
+    }
+
+    .landingpage .main h1 {
+        font-size: 2.3rem;
+    }
+
+    .landingpage .main p {
+        font-size: 14px;
+    }
+
+    .landingpage .features-box .feature {
+        gap: 15px;
+    }
+
+    .landingpage .features-box .feature .caption {
+        font-size: 13px;
+    }
+
+}

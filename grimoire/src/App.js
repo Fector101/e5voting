@@ -15,6 +15,7 @@ import Historypage from "./pages/Historypage";
 import { useEffect,useState } from "react";
 import { Menu, X } from "lucide-react";
 import Loginpage from "./pages/Loginpage";
+import Landingpage from "./pages/Landingpage";
 // import SignupPage from "./pages/Signuppage";
 // import LoginPage from "./pages/Loginpage";
 // import ForgotPSPage from "./pages/ForgotPSpage";
@@ -61,6 +62,7 @@ function App() {
       <Routes>
         {/* <Route path="/signup" element={ <SignupPage /> }/> */}
         {/* <Route path="/login" element={ <LoginPage /> }/> */}
+        <Route path="/" element={ <Landingpage/>}/>
         <Route path="/login" element={ <Loginpage/>}/>
         <Route path="/home" element={ <Homepage top_movies_data__={top_movies_data}/> }/>
         <Route path="/polls" element={ <Pollspage /> }/>
