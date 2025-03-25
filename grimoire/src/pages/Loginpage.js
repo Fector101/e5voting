@@ -1,15 +1,52 @@
-import LoginForm from "../components/ui/login-signup/LoginForm"
-import './../components/css/login-signuppage.css'
-import niceImg from "./../components/imgs/rotten_tomato.png"
-import GoToTop from "../components/js/GoToTop";
+import { useState } from "react";
+import { Mail, Lock, Vote } from "lucide-react";
+import './../components/css/loginpage.css'
 
-export default function SignupPage(){
-    // flex-page dosen't add flex display to page it's important to format pages properly
-    return(
-        <div className="login-page flex-page flex algin-items-cen margin-auto fd-row width100per">
-            <LoginForm className="margin-left-auto"/>
-            <div className="responsive-backdrop" style={{backgroundImage: `url(${niceImg})`}}></div>
-              <GoToTop />
+export default function Loginpage() {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log({ email, password });
+    };
+
+    return (
+        <div className="signin-container">
+            <div className="signin-box">
+                <div className="icon-circle">
+                    <Vote/>
+                </div>
+                <h2>Student Vote</h2>
+                <p className="subtitle">Sign in to your account</p>
+                <form onSubmit={handleSubmit}>
+                    <label>Email</label>
+                    <div className="input-group">
+                        <Mail className="icon" />
+                        <input
+                            type="email"
+                            placeholder="youremail@school.edu"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
+                        />
+                    </div>
+
+                    <label>Password</label>
+                    <div className="input-group">
+                        <Lock className="icon" />
+                        <input
+                            type="password"
+                            placeholder="********"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                        />
+                    </div>
+
+                    <button type="submit" className="signin-btn">Sign in</button>
+                </form>
+            </div>
         </div>
-    )
+    );
 }

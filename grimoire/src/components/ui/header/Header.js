@@ -233,16 +233,14 @@ function ModalEle({ modal, setModal }) {
     );
 }
 
-export default function Header({ class_, userName }) {
+export default function Header({ className, userName }) {
     // userName='Dev'
-    const { "*": url_extension } = useParams();
-    console.log(url_extension, "header");
-    const [modal, setModalEle] = useState("");
+    const location = useLocation();
     const navItems = [
         {
             icon: <LayoutDashboard />,
             title: "Dashboard",
-            link: "/"
+            link: "/home"
         },
         {
             icon: <Vote />,
@@ -265,27 +263,16 @@ export default function Header({ class_, userName }) {
             link: "/admin"
         }
     ]
-    useEffect(function () {
-        // document.querySelector('.side-menu-modal').addEventListener('mouseup', function (e) {
-        //     // if(e.target === document.querySelector('.side-menu-modal')){
-        //     // if(e.target === document.querySelector('.side-menu-modal')){
-        //     document.querySelector('.side-menu-modal').classList.add('display-none')
-        //     // }
-        // })
-        // document.querySelector('.menu-btn').addEventListener('click', function () {
-        //     document.querySelector('.side-menu-modal').classList.remove('display-none')
-        // })
-    }, []);
     return (
         <>
-            <header className={class_}>
+            <header className={className}>
                 <section className="row heading">
                     <Vote />
                     <h1>Student Vote</h1>
                 </section>
                 <section className='nav'>
-                        {navItems.map((each,i)=><Link to={each.link} className={'row'+ (i === 0? ' active':'')}> {each.icon} {each.title} <ChevronRight className="arrow"/></Link>)
-                        }
+                    {navItems.map((each, i) => <Link to={each.link} className={`row ${location.pathname === each.link ? "active" : ""}`}> {each.icon} {each.title} <ChevronRight className="arrow" /></Link>)
+                    }
                     {/* // <LayoutDashboard/> */}
                 </section>
                 <section className='last-box'>
@@ -296,19 +283,10 @@ export default function Header({ class_, userName }) {
                             <p>Admin</p>
                         </div>
                     </div>
-                    <button><LogOut/> Sign Out</button>
+                    <button><LogOut /> Sign Out</button>
                 </section>
             </header>
-            {/* <section className="side-menu-modal display-none">
-                <div className="side-menu-content-box">
-                    <MySidenavBar for_="side-menu" links={[{ link: '/', name: 'Home', icon: <HomeIcon /> }, { link: '/lists', name: 'Lists', icon: <Bookmark /> }, { link: '/shows', name: 'Tv shows', icon: <Tv /> }, { link: '/Movies', name: 'Movies', icon: <Film /> }, { link: '/Cartoons', name: 'Cartoons', icon: <Activity /> }, { link: '/Search', name: 'Search', icon: <Search /> }]} />
-                    <button className="outline-white sign-up" onClick={() => setModalEle('signup')}>Sign Up</button>
 
-                </div>
-            </section> */}
-            {
-                // modal && <ModalEle modal={modal} setModal={setModalEle} />
-            }
             <Outlet
                 context={{
                     foxxy: () => "Wisdow Seekers",

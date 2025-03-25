@@ -1,11 +1,11 @@
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { top_movies_data } from "../components/js/api_data"
 import { nanoid } from "nanoid";
 import { getGenreName, randInt } from "../components/js/helper";
 import ImgwithPL from "../components/js/ImgwithPL";
 import GoToTop from "../components/js/GoToTop";
 import './../components/css/pollspage.css'
-import { PlayCircle, User2, ArrowBigDown, ArrowBigUp, Clock, Calendar, Languages, Eye, PlusCircle, Heart, HeartCrack, Dot, Play, Plus } from "lucide-react";
+import { PlayCircle, User2, ArrowBigDown, ArrowBigUp, Clock, Calendar, Languages, Eye, PlusCircle, Heart, HeartCrack, Dot, Play, Plus, ArrowRight } from "lucide-react";
 import { BookmarkActionButton } from "../components/ui/buttons/buttons";
 import rottenTomatoImg from './../components/imgs/rotten_tomato.png'
 import imdbSvg from './../components/imgs/imdb.svg'
@@ -89,118 +89,73 @@ function Details({ secs, original_language, release_date, className }) {
         </ul>
     )
 }
+function Poll({ state, end_date, title, desc }) {
+    return (
+        <div className="poll-card">
+            <div className="row">
+                <div className="badge active"><Dot /> {state}</div>
+                <div className="caption">
+                    <Clock />
+                    <p>
+                        Ends: {end_date}
+                    </p>
+                </div>
+            </div>
+            <h3>{title}</h3>
+            <p className="caption description">{desc}</p>
+            <Link className="primary-btn">Vote Now <ArrowRight /></Link>
+        </div>
+    )
+}
 
 export default function Moviepage() {
-    const [searchParams] = useSearchParams();
-    const movie_id = searchParams.get('id');
-    let movie_data = { ...top_movies_data.results.find(({ id }) => id === +movie_id) } //{...object.value} clones main object value
-    // movie_data ={}
-    function takeVote(element) {
-        element.stopPropagation()
-        const clicked_btn = element.target.closest('button')
-        if (!clicked_btn) return
-
-        const btn_box = element.target.closest('.rate-btns-case')
-        const user_vote = [...clicked_btn.classList].filter(class_name => ['up', 'down'].includes(class_name))[0]
-
-        if (user_vote === 'up') {
-            btn_box.querySelector('.vote-btn.down').classList.remove('clicked')
-        } else if (user_vote === 'down') {
-            btn_box.querySelector('.vote-btn.up').classList.remove('clicked')
+    const polls = [
+        {
+            state: "Active",
+            end_date: "2025-04-10",
+            title: "Best Student Representative",
+            desc: "Vote for the best candidate to represent the student body."
+        },
+        {
+            state: "Active",
+            end_date: "2025-04-15",
+            title: "Sports Captain Election",
+            desc: "Choose the next leader for the school's sports teams."
+        },
+        {
+            state: "Active",
+            end_date: "2025-03-20",
+            title: "New Library Policies",
+            desc: "Vote on proposed changes to the library's opening hours and rules."
+        },
+        {
+            state: "Active",
+            end_date: "2025-03-20",
+            title: "New Library Policies",
+            desc: "Vote on proposed changes to the library's opening hours and rules."
+        },
+        {
+            state: "Active",
+            end_date: "2025-03-20",
+            title: "New Library Policies",
+            desc: "Vote on proposed changes to the library's opening hours and rules."
         }
-        clicked_btn.classList.toggle('clicked')
-    }
-    const {
-        adult,
-        backdrop_path,
-        genre_ids,
-        id,
-        media_type,
-        original_language,
-        title,
-        original_title,
-        overview,
-        popularity,
-        poster_path,
-        release_date,
-        video,
-        vote_average,
-        vote_count,
-    } = movie_data
-    // delete movie_data.title
-    let cast = [
-        {
-            "id": 6193,
-            "name": "Leonardo DiCaprio",
-            "character": "Dom Cobb",
-            "profile_path": "/wo2hJpn04vbtmh0B9utCFdsQhxM.jpg"
-        },
-        {
-            "id": 24045,
-            "name": "Joseph Gordon-Levitt",
-            "character": "Arthur",
-            "profile_path": "/4U9G4YwTlIEbAymBaseltwUs4OF.jpg"
-        },
-        {
-            "id": 2537,
-            "name": "Elliot Page",
-            "character": "Ariadne",
-            "profile_path": "/gJcw8SgLqMQ2XQLvhtdmBz3F3Ma.jpg"
-        },
-        {
-            "id": 2524,
-            "name": "Tom Hardy",
-            "character": "Eames",
-            "profile_path": "/6S0dmVVZc1YCt8bEQcDQWEyQ5ga.jpg"
-        },
-        {
-            "id": 3896,
-            "name": "Ken Watanabe",
-            "character": "Saito",
-            "profile_path": "/d7UY8jRV3z6m97lF2sjJ04nOylP.jpg"
-        },
-        {
-            "id": 3897,
-            "name": "Cillian Murphy",
-            "character": "Robert Fischer",
-            "profile_path": "/nvTujOMoJuSsbI5G9l83dkfWtQ3.jpg"
-        },
-        {
-            "id": 3897,
-            "name": "Cillian Murphy",
-            "character": "Robert Fischer",
-            "profile_path": "/nvTujOMoJuSsbI5G9l83dkfWtQ3.jpg"
-        },
-        {
-            "id": 3897,
-            "name": "Cillian Murphy",
-            "character": "Robert Fischer",
-            "profile_path": "/nvTujOMoJuSsbI5G9l83dkfWtQ3.jpg"
-        },
-        {
-            "id": 3897,
-            "name": "Cillian Murphy",
-            "character": "Robert Fischer",
-            "profile_path": "/nvTujOMoJuSsbI5G9l83dkfWtQ3.jpg"
-        }
-    ]
-    // cast = []
-    let [cover_img, SetCoverImg] = useState('linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0.5), transparent)')
-    useEffect(() => {
-        const img = new Image()
-        img.src = `https://image.tmdb.org/t/p/original${backdrop_path}`
-        img.onload = () => SetCoverImg(`url(${img.src})`)
-    }, [backdrop_path])
-    const secs = randInt(3600, 7200)
-    const action_btns_data = [{ title: 'Watched It', icon: <Eye /> }, { title: 'Add to List', icon: <PlusCircle />, className: 'watchlist-btn' }, { title: 'Favourites', icon: <Heart /> }]
+    ];
+
+
+
     return (
-        <div className="page">
+        <div className="polls-page page">
             <section className="heading">
                 <div>
                     <h1>Active Polls</h1>
                     <p className="caption">Vote in currently active polls</p>
                 </div>
             </section>
+            <section className="polls-box">
+                {polls.map((poll, index) => <Poll key={index} {...poll} />)}
+            </section>
+
             <GoToTop />
         </div>
     )

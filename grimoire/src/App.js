@@ -4,14 +4,16 @@ import "./components/css/App.css";
 import Homepage from "./pages/Homepage";
 import { top_movies_data } from "./components/js/api_data";
 import {Route, Routes } from "react-router-dom";
-// import NotFoundpage from "./pages/NotFoundpage";
+import NotFoundpage from "./pages/NotFoundpage";
 // import ListRoutes from "./pages/LIstRoutes";
 import Header from "./components/ui/header/Header";
 // import "./components/css/responsive.css"
 import Footer from "./components/ui/footer/Footer";
 // import Moviepage from "./pages/stuff/Moviepage";
 import Moviepage from "./pages/Pollspage";
-import { useEffect } from "react";
+import { useEffect,useState } from "react";
+import { Menu, X } from "lucide-react";
+import Loginpage from "./pages/Loginpage";
 // import SignupPage from "./pages/Signuppage";
 // import LoginPage from "./pages/Loginpage";
 // import ForgotPSPage from "./pages/ForgotPSpage";
@@ -32,27 +34,44 @@ import { useEffect } from "react";
 // }
 // /site-collection/
 function App() {
-  // let [top_10_movies,setTop10Movies]=useState([])
-  // const navigate = useNavigate()
-  // const goToMovie = () => navigate('/movie?id=933260');
-  
-  useEffect(function(){
-    // goToMovie()
-  //   apiCall().then(data=>setTop10Movies(data))
-  },[])
+  const [header_state, setHeaderState] = useState(window.innerWidth > 500);
+
+  function toggleHeader() {
+    setHeaderState(prev => !prev);
+  }
+
+  useEffect(() => {
+    function handleResize() {
+      if (window.innerWidth > 800) {
+        setHeaderState(true);
+      } else {
+        setHeaderState(false);
+      }
+    }
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <>
-      <Header/>
+      {/* {header_state && <Header/>} */}
+      <Header className={`sidebar ${header_state ? "show" : "hide"}`} />
       <Routes>
         {/* <Route path="/signup" element={ <SignupPage /> }/> */}
         {/* <Route path="/login" element={ <LoginPage /> }/> */}
-        <Route path="/" element={ <Homepage top_movies_data__={top_movies_data}/> }/>
+        <Route path="/" element={ <Loginpage/>}/>
+        <Route path="/home" element={ <Homepage top_movies_data__={top_movies_data}/> }/>
         <Route path="/polls" element={ <Moviepage /> }/>
         {/*
         <Route path="/forgot-ps" element={ <ForgotPSPage /> }/>
         <Route path="/list/*" element={<ListRoutes />} /> 
-        <Route path="*" element={ <NotFoundpage redirect_path='/' timeout_secs={5}/>} /> */}
+        */}
+        <Route path="*" element={ <NotFoundpage redirect_path='/' timeout_secs={5}/>} /> 
       </Routes>
+      <button className="primary-btn" id="menu-btn" onClick={toggleHeader}>
+        {header_state?<X/>:<Menu/>}
+        </button>
       {/* <Footer/> */}
     </>
     // <div className="App">
