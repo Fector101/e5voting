@@ -10,7 +10,8 @@ import Header from "./components/ui/header/Header";
 // import "./components/css/responsive.css"
 import Footer from "./components/ui/footer/Footer";
 // import Moviepage from "./pages/stuff/Moviepage";
-import Moviepage from "./pages/Pollspage";
+import Pollspage from "./pages/Pollspage";
+import Historypage from "./pages/Historypage";
 import { useEffect,useState } from "react";
 import { Menu, X } from "lucide-react";
 import Loginpage from "./pages/Loginpage";
@@ -62,7 +63,8 @@ function App() {
         {/* <Route path="/login" element={ <LoginPage /> }/> */}
         <Route path="/" element={ <Loginpage/>}/>
         <Route path="/home" element={ <Homepage top_movies_data__={top_movies_data}/> }/>
-        <Route path="/polls" element={ <Moviepage /> }/>
+        <Route path="/polls" element={ <Pollspage /> }/>
+        <Route path="/history" element={ <Historypage /> }/>
         {/*
         <Route path="/forgot-ps" element={ <ForgotPSPage /> }/>
         <Route path="/list/*" element={<ListRoutes />} /> 
