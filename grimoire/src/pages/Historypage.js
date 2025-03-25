@@ -16,7 +16,7 @@ function VotingStats({ title, des, runners_info_tuple }) {
     // runners_info_tuple =[['name',140]]   
     // runners_info_tuple =[['name','votes'],...]   
     const total_votes = runners_info_tuple.reduce((sum, [, votes]) => sum + votes, 0);
-    console.log(total_votes, '---')
+    // console.log(total_votes, '---')
     return (
         <div className="voting-stats-card">
             <div class="row"><div class="badge active"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-dot"><circle cx="12.1" cy="12.1" r="1"></circle></svg> Active</div><div class="caption"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><p>Ends: 2025-04-10</p></div></div>
