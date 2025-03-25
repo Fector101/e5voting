@@ -13,13 +13,17 @@
 }
 .history-page .recent-votings .voting-stats-card{
     width: 300px;
-    font-size: 15px;
+    font-size: 14px;
 
 }
 
 
+.history-page .voting-stats-card .caption {
+    font-size: 13px;
+}
 .history-page .voting-stats-card .row {
     justify-content: space-between;
+    font-size: 12px;
 }
 
 .history-page .voting-stats-card .badge {
@@ -56,3 +60,11 @@
     height: var(--size);
 }
 
+
+.history-page .voting-stats-card .view-all-votes-btn{
+    font-size: 13px;
+    padding: 10px 6px;
+}
+.history-page .voting-stats-card .view-all-votes-btn svg{
+    --size:16px;
+}
