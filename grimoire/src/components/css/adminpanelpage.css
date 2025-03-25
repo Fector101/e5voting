@@ -170,6 +170,10 @@ table tr th:nth-child(4) {
         gap: 15px;
     }
 
+    table th {
+        font-size: 11px;
+    }
+
     .adminpage.page {
         padding-left: 25px;
         padding-right: 25px;
@@ -188,7 +192,7 @@ table tr th:nth-child(4) {
     }
 
     .poll-title {
-        font-size: 12px;
+        font-size: 11px;
     }
 
     .action-btn {
@@ -196,4 +200,8 @@ table tr th:nth-child(4) {
         font-size: 12px;
     }
 
+    .status {
+        font-size: 10px;
+        padding: 4px;
+    }
 }
