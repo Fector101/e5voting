@@ -1,0 +1,36 @@
+.signup-page, .login-page{
+    gap: 8vw;
+    padding: 20px 15px;
+}
+.responsive-backdrop{
+    margin-right: 3vw;
+    width: 40vw;
+    height: 60vh;
+    background-repeat: no-repeat;
+    background-size: 50%; /*cover*/
+    background-position: center;
+    /* background-color: pink; */
+}
+@media screen and (max-width:1024px) {
+    .signup-page, .login-page{
+        position: relative; /*For .signup-page .responsive-backdrop pos: absolute*/
+    }
+    .responsive-backdrop{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+    .responsive-backdrop::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(39, 36, 36, 0.802);
+        width: 100%;
+        height: 100%;
+    }
+    
+    .form-container{
+        z-index: 1;
+    }
+}

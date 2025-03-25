@@ -1,0 +1,133 @@
+* {
+    padding: 0;
+    margin: 0;
+    /* outline: none; */
+    border: 0;
+    box-sizing: border-box;
+}
+
+body>#root {
+    min-height: 100vh;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    --font-style: sans-serif;
+    --custom-font-style: 'Sometype Mono', monospace;
+    --theme-color: yellow;
+    --bod-color: black;
+    --svg-primary-bg: aliceblue;
+    --accent-color: rgb(207, 207, 249);
+    --modal-bg: #000000de;
+    font-family: var(--custom-font-style);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-optical-sizing: auto;
+    color: var(--bod-color);
+
+
+    --primary-btn-bg:rgb(7, 169, 197);
+    display: flex;
+    /* overflow-x: hidden; */
+    /* flex-direction: column; */
+  
+}
+.primary-btn{
+    background-color: var(--primary-btn-bg);
+    color: white;
+    border-radius: 10px;
+
+}
+.row {
+    display: flex;
+}
+.caption{
+    color: grey;
+}
+
+/* *:focus{
+    outline: 1px rgb(88, 69, 88) solid;
+    border: 1.2px var(--accent-color) solid !important;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(39, 36, 36);
+    gap: 40px;
+    padding-top: 1%;
+    padding-bottom: 2rem;
+    width: 100%;
+}
+
+body button {
+    background-color: transparent;
+    display: flex;
+    font-family: inherit;
+}
+
+body button:hover {
+    background-color: rgba(255, 255, 255, 0.437);
+}
+
+main {
+    height: 65vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    border-radius: 30px;
+    overflow: hidden;
+    width: 96%;
+    align-self: center; 
+}
+.movie-page{
+    margin: auto;
+}
+
+For flex position pages
+body:has(.flex-page) #root{
+    display: flex;
+    flex-direction: column;
+}
+body:has(.flex-page) header{
+    position: sticky;
+    width: 100%;
+    top: 0;
+}
+
+
+Beating Bookmark Button
+
+.beating-bookmark-btn{
+    height: 55px;
+    width: 55px;
+    animation: beat 1s ease-in-out infinite;
+    position: relative;
+}
+
+.beating-bookmark-btn svg {
+    --color: rgb(230, 230, 241);
+    fill: var(--color);
+    color: var(--color);
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.beating-bookmark-btn svg:first-child {
+    fill: var(--accent-color);
+    color: var(--accent-color);
+    position: absolute;
+    left: 3px;
+    top: 5px;
+}
+
+Keyframes for the "beating" animation
+@keyframes beat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    } */

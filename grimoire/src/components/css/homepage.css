@@ -1,0 +1,130 @@
+.home-page {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.home-page section {}
+
+.home-page .heading {
+    display: flex;
+    /* background: #000; */
+    justify-content: space-between;
+    align-items: center;
+}
+
+.caption {
+    color: grey;
+}
+
+.home-page .heading button {
+
+    height: 38px;
+    padding: 0 10px;
+
+
+}
+
+
+.preview-stats-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.preview-stats-box .card {
+    box-shadow: 1px 1px 1px 1px rgb(161, 161, 161);
+    width: 300px;
+    min-width: 300px;
+    max-width: 99%;
+    padding: 25px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    /* height: 160px; */
+}
+.preview-stats-box .card h3{
+    color: rgb(65, 64, 64);
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+.preview-stats-box .card .title-box {
+    justify-content: space-between;
+}
+.preview-stats-box .card .icon-row{
+    /* background: #000; */
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    /* justify-content: center; */
+}
+.preview-stats-box .card .icon-row svg{
+    --size: 25px;
+    width: var(--size);
+    height: var(--size);
+    background-color: rgb(151, 245, 151);
+    color: rgb(102, 153, 25);
+    padding: 4px;
+    border-radius: 3px;
+}
+.preview-stats-box .card > div:last-child{
+    font-size: 14px;
+}
+
+.preview-stats-box .card a{
+    display: flex;
+    align-items: center;
+    color: rgb(4, 170, 170);
+    gap: 5px;
+}
+.preview-stats-box .card .strong {
+    font-size: 20px;
+    white-space: nowrap;
+    max-width: 200px;
+    min-width: 0;
+    display: inline-block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    /* color: aqua; */
+}
+
+.preview-stats-box .card strong {
+    /* color: red; */
+    font-size: 30px;
+}
+
+.preview-stats-box .card .badge {
+    --size: 32px;
+    width: var(--size);
+    height: var(--size);
+
+    padding: 5px;
+    border-radius: 6px;
+}
+
+.badge.blue {
+    color: navy;
+    background: #bdbef5;
+}
+
+.badge.green {
+    color: green;
+    background: #c2fba2;
+}
+
+.badge.purple {
+    color: purple;
+    background-color: #eeb4ee;
+}
+
+.badge.yellow {
+    background-color: #e8e192;
+    color: #8a8a00;
+    
+}
