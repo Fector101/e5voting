@@ -4,7 +4,7 @@ import { nanoid } from "nanoid";
 import { getGenreName, randInt } from "../components/js/helper";
 import ImgwithPL from "../components/js/ImgwithPL";
 import GoToTop from "../components/js/GoToTop";
-import './../components/css/moviepage.css'
+import './../components/css/pollspage.css'
 import { PlayCircle, User2, ArrowBigDown, ArrowBigUp, Clock, Calendar, Languages, Eye, PlusCircle, Heart, HeartCrack, Dot, Play} from "lucide-react";
 import { BookmarkActionButton } from "../components/ui/buttons/buttons";
 import rottenTomatoImg from './../components/imgs/rotten_tomato.png'
@@ -194,91 +194,84 @@ export default function Moviepage(){
     const secs = randInt(3600, 7200)
     const action_btns_data = [{title:'Watched It',icon:<Eye/>}, {title:'Add to List',icon: <PlusCircle/>, className: 'watchlist-btn'}, {title:'Favourites', icon: <Heart/>}]
     return (
-        <div className="movie-page margin-auto flex-page">
-
-            <section  style={{backgroundImage: cover_img}} className="movie-poster-case">
-                
-                <button className="play-btn"> <Play/> </button>
-                <div className="content flex">
-                  <div className="details">
-                      <h3> {title} </h3>
-                      {original_title !== title && <p>AKA: {original_title}</p>}
-                      <Details className="for-lager-screen" secs={secs} original_language={original_language} release_date={release_date} />
-                      <div className="genres-box flex"> {genre_ids?.map(genre_id=><p key={nanoid()} className={genre_id + '0'}>{getGenreName(genre_id)}</p>)} </div>
-                  </div>
-
-                  <BookmarkActionButton className='bookmark-btn'/>
-                  <ActionBtns className="large-screens-btns" btns_data={action_btns_data}/>
-                </div>
-            </section>
-            <Details className="for-smaller-screen" secs={secs} original_language={original_language} release_date={release_date} />
-            <ActionBtns className="medium-screens-btns" btns_data={action_btns_data}/>
-            
-            <section className="overview-box">
-                <h4>Overview</h4>
-                <p>{overview}</p>
-            </section>
-
-            <section>
-                <h3>Cast</h3>
-                <div className="cast-box">
-                    {cast.map(each_member=><Castmember key={nanoid()} member_data={each_member}/>)}
-                </div>
-            </section>
-
-            <section className="rating-box">
-                <h4>Ratings</h4>
-                        <div className="display-flex rate-btns-case">
-                            <button onClick={takeVote} className="vote-btn down"> <ArrowBigDown /> </button>
-                            <button onClick={takeVote} className="vote-btn up"> <ArrowBigUp /> </button>
-                        </div>
-                <table>
-                    <tbody>
-                        <tr>
-                            <td> Site </td>
-                            <td> Rating </td>
-                            <td> People</td>
-                        </tr>
-                        <tr>
-                            <td>
-                              <img src={imdbSvg} alt="IMDB"/>
-                              <p>IMDB</p>
-                              </td>
-                            <td>{vote_average}</td>
-                            <td>10k</td>
-                        </tr>
-                        <tr>
-                            <td> 
-                                <img src={rottenTomatoImg} alt="Rotten Tomato"/>
-                                <p>Rotten Tomato</p>
-                              </td>
-                            <td>{popularity}</td>
-                            <td>11.1k</td>
-                        </tr>
-                        <tr>
-                            <td>
-                              <img src={logoPng} alt="Grimoire"/>
-                              <p>Grimoire</p>
-                              </td>
-                            <td>{vote_count}</td>
-                            <td>1m</td>
-                        </tr>
-                        
-                        {/* <tr>   Download the logo and add it to the project
-                            <td>
-                              <img src={logoPng} alt="themoviedb"/>
-                              <p>themoviedb</p>
-                              </td>
-                            <td>{vote_average}</td>
-                            <td>{vote_count}</td>
-                        </tr> */}
-                    </tbody>  
-
-                </table>
-            </section>
+        <div className="">
 
              <GoToTop />
         </div>
     )
 }
 // {/* {Object.entries(movie_data).map(each=><p key={nanoid()}>{each.join(': ')}</p>)} */}
+
+{/* <section  style={{backgroundImage: cover_img}} className="movie-poster-case">
+                
+<button className="play-btn"> <Play/> </button>
+<div className="content flex">
+  <div className="details">
+      <h3> {title} </h3>
+      {original_title !== title && <p>AKA: {original_title}</p>}
+      <Details className="for-lager-screen" secs={secs} original_language={original_language} release_date={release_date} />
+      <div className="genres-box flex"> {genre_ids?.map(genre_id=><p key={nanoid()} className={genre_id + '0'}>{getGenreName(genre_id)}</p>)} </div>
+  </div>
+
+  <BookmarkActionButton className='bookmark-btn'/>
+  <ActionBtns className="large-screens-btns" btns_data={action_btns_data}/>
+</div>
+</section>
+<Details className="for-smaller-screen" secs={secs} original_language={original_language} release_date={release_date} />
+<ActionBtns className="medium-screens-btns" btns_data={action_btns_data}/>
+
+<section className="overview-box">
+<h4>Overview</h4>
+<p>{overview}</p>
+</section>
+
+<section>
+<h3>Cast</h3>
+<div className="cast-box">
+    {cast.map(each_member=><Castmember key={nanoid()} member_data={each_member}/>)}
+</div>
+</section>
+
+<section className="rating-box">
+<h4>Ratings</h4>
+        <div className="display-flex rate-btns-case">
+            <button onClick={takeVote} className="vote-btn down"> <ArrowBigDown /> </button>
+            <button onClick={takeVote} className="vote-btn up"> <ArrowBigUp /> </button>
+        </div>
+<table>
+    <tbody>
+        <tr>
+            <td> Site </td>
+            <td> Rating </td>
+            <td> People</td>
+        </tr>
+        <tr>
+            <td>
+              <img src={imdbSvg} alt="IMDB"/>
+              <p>IMDB</p>
+              </td>
+            <td>{vote_average}</td>
+            <td>10k</td>
+        </tr>
+        <tr>
+            <td> 
+                <img src={rottenTomatoImg} alt="Rotten Tomato"/>
+                <p>Rotten Tomato</p>
+              </td>
+            <td>{popularity}</td>
+            <td>11.1k</td>
+        </tr>
+        <tr>
+            <td>
+              <img src={logoPng} alt="Grimoire"/>
+              <p>Grimoire</p>
+              </td>
+            <td>{vote_count}</td>
+            <td>1m</td>
+        </tr>
+        
+        
+    </tbody>  
+
+</table>
+</section> */}

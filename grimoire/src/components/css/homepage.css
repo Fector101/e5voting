@@ -1,15 +1,20 @@
 .home-page {
     flex: 1;
     padding: 40px;
-    display: flex;
+    /* display: flex; */
     flex-direction: column;
-    gap: 40px;
+    /* gap: 40px; */
+    overflow-y: scroll;
+    height: 100vh;
 }
 
-.home-page section {}
+.home-page section {
+    margin-bottom: 40px;
+}
 
 .home-page .heading {
     display: flex;
+    gap: 10px;
     /* background: #000; */
     justify-content: space-between;
     align-items: center;
@@ -198,4 +203,27 @@
     margin-left: 5px;
     width: var(--size);
     height: var(--size);
+}
+
+@media screen and (max-width:460px) {
+.home-page {
+    padding: 30px 20px;
+}
+
+.home-page .heading button {
+    height: 38px;
+    width: 200px;
+    padding: 0 5px;
+}
+.recent-votings .voting-stats-card{
+    font-size: 12px !important;
+}
+.voting-stats-card .runners-box .row{
+    font-size: 12px !important;
+}
+.voting-stats-card .view-all-votes-btn{
+    font-size: 10px;
+}
+.voting-stats-card .view-all-votes-btn svg{
+    --size: 15px;}
 }

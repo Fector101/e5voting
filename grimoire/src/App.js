@@ -7,10 +7,10 @@ import {Route, Routes } from "react-router-dom";
 // import NotFoundpage from "./pages/NotFoundpage";
 // import ListRoutes from "./pages/LIstRoutes";
 import Header from "./components/ui/header/Header";
-import "./components/css/responsive.css"
+// import "./components/css/responsive.css"
 import Footer from "./components/ui/footer/Footer";
 // import Moviepage from "./pages/stuff/Moviepage";
-import Moviepage from "./pages/Moviepage";
+import Moviepage from "./pages/Pollspage";
 import { useEffect } from "react";
 // import SignupPage from "./pages/Signuppage";
 // import LoginPage from "./pages/Loginpage";
@@ -47,7 +47,8 @@ function App() {
         {/* <Route path="/signup" element={ <SignupPage /> }/> */}
         {/* <Route path="/login" element={ <LoginPage /> }/> */}
         <Route path="/" element={ <Homepage top_movies_data__={top_movies_data}/> }/>
-        {/* <Route path="/movie" element={ <Moviepage /> }/>
+        <Route path="/polls" element={ <Moviepage /> }/>
+        {/*
         <Route path="/forgot-ps" element={ <ForgotPSPage /> }/>
         <Route path="/list/*" element={<ListRoutes />} /> 
         <Route path="*" element={ <NotFoundpage redirect_path='/' timeout_secs={5}/>} /> */}

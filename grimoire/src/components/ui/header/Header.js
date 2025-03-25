@@ -238,7 +238,33 @@ export default function Header({ class_, userName }) {
     const { "*": url_extension } = useParams();
     console.log(url_extension, "header");
     const [modal, setModalEle] = useState("");
-
+    const navItems = [
+        {
+            icon: <LayoutDashboard />,
+            title: "Dashboard",
+            link: "/"
+        },
+        {
+            icon: <Vote />,
+            title: "Active Polls",
+            link: "/polls"
+        },
+        {
+            icon: <ChartNoAxesColumn />,
+            title: "Results",
+            link: "/results"
+        },
+        {
+            icon: <History />,
+            title: "Past Polls",
+            link: "/history"
+        },
+        {
+            icon: <User />,
+            title: "Admin Panel",
+            link: "/admin"
+        }
+    ]
     useEffect(function () {
         // document.querySelector('.side-menu-modal').addEventListener('mouseup', function (e) {
         //     // if(e.target === document.querySelector('.side-menu-modal')){
@@ -258,14 +284,7 @@ export default function Header({ class_, userName }) {
                     <h1>Student Vote</h1>
                 </section>
                 <section className='nav'>
-                        {
-                            [
-                                [<LayoutDashboard />, "Dashboard"],
-                                [<Vote />, "Active Polls"],
-                                [<ChartNoAxesColumn />, "Results"],
-                                [<History />, "Past Polls"],
-                                [<User />, "Admin Panel"],
-                            ].map((each,i)=><a className={'row'+ (i === 0? ' active':'')}> {each[0]} {each[1]} <ChevronRight className="arrow"/></a>)
+                        {navItems.map((each,i)=><Link to={each.link} className={'row'+ (i === 0? ' active':'')}> {each.icon} {each.title} <ChevronRight className="arrow"/></Link>)
                         }
                     {/* // <LayoutDashboard/> */}
                 </section>

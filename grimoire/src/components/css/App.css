@@ -5,7 +5,9 @@
     border: 0;
     box-sizing: border-box;
 }
-
+body{
+    overflow-y: hidden;
+}
 body>#root {
     min-height: 100vh;
     height: 100%;
@@ -27,7 +29,7 @@ body>#root {
 
     --primary-btn-bg:rgb(7, 169, 197);
     display: flex;
-    /* overflow-x: hidden; */
+    overflow-y: hidden;
     /* flex-direction: column; */
   
 }
