@@ -268,14 +268,11 @@ export default function Header({ className, userName }) {
             <header className={className}>
                 <section className="row heading">
                     <Vote />
-                    <Link className="title" to='/'>E3Voting</Link>
-
-                    {/* <h1>E3Voting</h1> */}
+                    <Link className="title" to='/' >E3Voting</Link>
                 </section>
                 <section className='nav'>
                     {navItems.map((each, i) => <Link to={each.link} className={`row ${location.pathname === each.link ? "active" : ""}`}> {each.icon} {each.title} <ChevronRight className="arrow" /></Link>)
                     }
-                    {/* // <LayoutDashboard/> */}
                 </section>
                 <section className='last-box'>
                     <div className='row'>

@@ -19,7 +19,8 @@ export default function Landingpage() {
             <section className="main">
                 <h1>E3Voting <span>Platform</span></h1>
                 <p className="caption">An easy way to create polls, collect votes, and analyze results for student organizations and educational institutions.</p>
-                <button className="primary-btn">Get started <ArrowRight /></button>
+                <Link to='/login' className="primary-btn">Get started <ArrowRight /></Link>
+                {/* <Link to='/login' className="primary-btn">Get started <ArrowRight /></Link> */}
             </section>
             <section className="features-box">
                 <div className="feature">
