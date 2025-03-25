@@ -5,11 +5,9 @@
     border: 0;
     box-sizing: border-box;
 }
-
-body {
+body{
     overflow-y: hidden;
 }
-
 body>#root {
     min-height: 100vh;
     height: 100%;
@@ -29,11 +27,11 @@ body>#root {
     color: var(--bod-color);
 
 
-    --primary-btn-bg: rgb(7, 169, 197);
+    --primary-btn-bg:rgb(7, 169, 197);
     display: flex;
     overflow-y: hidden;
     /* flex-direction: column; */
-
+  
 }
 
 .page {
@@ -45,7 +43,6 @@ body>#root {
     overflow-y: scroll;
     height: 100vh;
 }
-
 .page .heading button {
     height: 38px;
     padding: 0 10px;
@@ -54,7 +51,7 @@ body>#root {
     justify-content: center;
 }
 
-.page .heading button svg {
+.page .heading button svg{
     --size: 20px;
     margin-right: 5px;
     width: var(--size);
@@ -69,7 +66,6 @@ body>#root {
     justify-content: space-between;
     align-items: center;
 }
-
 .page section {
     margin-bottom: 40px;
 }
@@ -79,29 +75,19 @@ body>#root {
 }
 
 
-.primary-btn {
+.primary-btn{
     background-color: var(--primary-btn-bg);
     color: white;
     border-radius: 10px;
 }
-
 .row {
     display: flex;
 }
-
-.caption {
+.caption{
     color: grey;
 }
 
 
-@media screen and (max-width:460px) {
-
-    .page .heading button {
-        height: 38px;
-        width: 200px;
-        padding: 0 5px;
-    }
-}
 
 /* *:focus{
     outline: 1px rgb(88, 69, 88) solid;

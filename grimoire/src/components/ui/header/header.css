@@ -3,7 +3,7 @@ header {
     flex-direction: column;
     background-color: aliceblue;
     color: black;
-    height: 100%;
+    min-height: 100%;
     /* position: fixed; */
     /* top: 0; */
     width: 280px;

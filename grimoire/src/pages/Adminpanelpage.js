@@ -1,201 +1,114 @@
-import { CheckCircle, Dot, Mail, Plus } from 'lucide-react'
-import '../components/css/forgotpspage.css'
+import { Calendar, CheckSquare, Filter, Plus, Users, XSquare } from 'lucide-react'
+import '../components/css/adminpanelpage.css'
 import { useEffect, useState } from 'react'
 import { InputCom } from '../components/ui/form-comps/Inputs'
 
-function SendRightEmail() {
-    const [email1, setEmail1] = useState('')
-    const [email2, setEmail2] = useState('')
-    // fetch emails
-
-    function handleSettedEmail(event) {
-        const clicked_btn = event.target
-        if (clicked_btn) {
-            event.target.closest('.choose-email-btn-box').querySelector('.selected')?.classList.remove('selected')
-            document.querySelector('.choose-email-container .submit').classList.remove('disabled-btn')
-        }
-        event.target.classList.add('selected')
-    }
-    return (
-        <div className="choose-email-container">
-            <h3>Choose Right Email</h3>
-
-            <div className='choose-email-btn-box flex'>
-                <button onClick={handleSettedEmail} value={email1} className='cursor-pointer'>fabi*****063@gmail.com</button>
-                <button onClick={handleSettedEmail} value={email2} className='cursor-pointer'>fec*****101@gmail.com</button>
-            </div>
-            <button className="disabled-btn outline-white submit align-self-cen">Next</button>
-
-        </div>
-    )
-}
-function SentResetPSEmailLoading() {
-    return (
-        <div className='loading-box'>
-            <span className='sent-icon-loading'></span>
-            <span className='header-loading'></span>
-            <span className='h3-msg-loading'></span>
-            <span className='sent-email-loading'></span>
-            <span className='long-msg-loading'></span>
-            <span className='didnt-recieve-msg-loading' ></span>
-            <span className='submit-loading'></span>
-        </div>
-    )
-}
-function SentResetPSEmail({ email, user_choice }) {
-    // user_choice:'sign-in' | 'reset-ps'
-    const [count_down, setCountDown] = useState(10)
-    const [loading, setLoading] = useState(10)
-
-    useEffect(function () {
-        setTimeout(() => setLoading(0), 1000 * 3)
-        function countDown() {
-            setCountDown(old_value => {
-                if (old_value <= 1) {
-                    clearInterval(timer)
-                    return 0
-                }
-                return old_value - 1
-            })
-        }
-        const timer = setInterval(countDown, 1 * 1000)
-        return () => clearInterval(timer)
-    }, [])
-    // ON-ENTER Add Loading Snipper When Pinging Server with `email` Or Show Boxes or widgets Loading
-    const session = { expire_time: '1 hour' }
-    return (
-        // <div className='sent-password-reset-email'>
-        <>
-            {loading ?
-                <SentResetPSEmailLoading /> :
-                <>
-                    <CheckCircle className='sent-icon' />
-                    <h3>Successfully</h3>
-                    <h3>Sent {user_choice === 'sign-in' ? 'a sign in link to:' : 'password reset Link to:'}</h3>
-                    <p className='sent-email'>
-                        <Mail />
-                        {email}</p>
-                    <p className='long-msg'>
-                        Check your email and click on the {user_choice === 'sign-in' ? 'link to sign in to your account' : 'link to reset your password'}. The link will expire in {session.expire_time}.
-                    </p>
-                    <p className='didnt-recieve-msg'>Didn't recieve Link? </p>
-                    <button disabled={count_down} className={'outline-white submit' + (count_down ? ' disabled-btn' : '')}>
-                        {count_down ? formatTime(count_down) : 'Resend'}
-                    </button>
-                </>
-            }
-
-        </>
-        // </div>
-    )
-}
-
-function formatTime(seconds) {
-    const minutes = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${String(minutes).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
-}
-
-function ChoicesBoxLoading() {
-    return (
-        <div className='loading-box'>
-            <span className='header-loading'></span>
-            <span className='long-msg-loading'></span>
-            <div className='btns-box flex width100per no-shimmer'>
-                <span className='width100per'></span>
-                <span className='width100per'></span>
-            </div>
-            <span className='sent-email-loading'></span>
-            <span className='choice-btn'></span>
-        </div>
-    )
-}
-function ChoicesBox({ email, user_choice, setChoice, setSlide }) {
-    // user_choice:'sign-in' | 'reset-ps'
-    const [loading, setLoading] = useState(1)
-    function handleSettedChoice(event) {
-        const clicked_btn = event.target
-        if (clicked_btn) {
-            setChoice(user_choice === 'sign-in' ? 'reset-ps' : 'sign-in')
-            event.target.closest('.choices-btns-box').querySelector('.selected')?.classList.remove('selected')
-            // document.querySelector('.reset-ps-choice-form .submit').classList.remove('disabled-btn')
-        }
-        event.target.classList.add('selected')
-    }
-    useEffect(function () {
-        setTimeout(() => setLoading(0), 1000 * 3)
-    }, [])
-    return (
-        <>
-            {loading ?
-                <ChoicesBoxLoading /> :
-                <>
-                    <h3>Account Recovery</h3>
-                    <p className='long-msg'>Choose an option to access your account</p>
-                    <div className='choices-btns-box'>
-                        <button onClick={handleSettedChoice} className={'choice outline-white' + (user_choice === 'reset-ps' ? ' selected' : '')}>Reset password</button>
-                        <button onClick={handleSettedChoice} className={'choice outline-white' + (user_choice === 'sign-in' ? ' selected' : '')}>Sign-in without password</button>
-                    </div>
-                    <p className='sent-email'>Email: {email}</p>
-                    <button onClick={() => setSlide(2)} className="mt-8px outline-white submit">{user_choice === 'sign-in' ? 'Send Sign-in Link' : 'Send Reset Link'}</button>
-
-                </>
-            }
-        </>
-    )
-}
-function EnterMethod({ email, user_choice_, setChoice, setSlide }) {
-    // This Component is incase user has two emails attached to email
-    const [loading, setLoading] = useState(10)
-    const [user_choice, setUserChoice] = useState(user_choice_|| 'email')
-    // user_choice:'username' | 'email'
-    function handleSettedChoice(event) {
-        const clicked_btn = event.target
-        if (clicked_btn) {
-            setUserChoice(user_choice === 'email' ? 'username' : 'email')
-            event.target.closest('.choices-btns-box').querySelector('.selected')?.classList.remove('selected')
-            // document.querySelector('.reset-ps-choice-form .submit').classList.remove('disabled-btn')
-        }
-        event.target.classList.add('selected')
-    }
-    useEffect(function () {
-        setTimeout(() => setLoading(0), 1000)
-    }, [])
-    return (
-        <>
-            {loading ?
-                <ChoicesBoxLoading /> :
-                <>
-                    <h3>Account Recovery</h3>
-                    <p className='long-msg'>Choose a tag to access your account</p>
-                    <div className='choices-btns-box'>
-                        <button onClick={handleSettedChoice} className={'choice outline-white' + (user_choice === 'email' ? ' selected' : '')}>Email</button>
-                        <button onClick={handleSettedChoice} className={'choice outline-white' + (user_choice === 'username' ? ' selected' : '')}>Username</button>
-                    </div>
-                    <form className='flex method-input-box'>
-                        <label>{user_choice === 'email' ? 'Email' : 'Username'}: {email}</label>
-                        <input required type={user_choice === 'email' ? 'email' : 'text'} placeholder={user_choice === 'email' ? 'Enter Email here' : 'Enter Username here'}/>
-                        <button className="mt-8px outline-white submit">submit</button>
-                    </form>
-                    {/* <button onClick={() => setSlide(1)} className="mt-8px outline-white submit">submit</button> */}
-
-                </>
-            }
-        </>
-    )
-}
 export default function Adminpanelpage({ email, username, phone_no }) {
-    
+    const [polls, setPolls] = useState([])
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState(null)
+    useEffect(() => {
+        setPolls([
+            {
+                id: 1,
+                title: "Sug Election",
+                description: "About Scho",
+                created: "25/03/2025",
+                endDate: "1 Jan 1111",
+                participants: 0,
+                status: "Active"
+            },
+            {
+                id: 2,
+                title: "Student Council President",
+                description: "Vote for your preferred candidate for Student C...",
+                created: "17/03/2025",
+                endDate: "26 Mar 2025",
+                participants: 74,
+                status: "Active"
+            },
+            {
+                id: 3,
+                title: "Cafeteria Menu Changes",
+                description: "Which new food option would you like to see in t...",
+                created: "21/03/2025",
+                endDate: "No end date",
+                participants: 174,
+                status: "Active"
+            },
+            {
+                id: 4,
+                title: "Spring Dance Theme",
+                description: "Select your preferred theme for the upcoming S...",
+                created: "22/02/2025",
+                endDate: "9 Mar 2025",
+                participants: 128,
+                status: "Closed"
+            }
+        ]);
+    }, []);
+
     return (
-        <div className="page">
+        <div className="adminpage page">
             <section className="heading">
                 <div>
                     <h1>Admin Panel</h1>
                     <p className="caption">Manage polls and view results</p>
                 </div>
                 <button className="primary-btn">
-                    <Plus/>
+                    <Plus />
                     Create New Poll</button>
+            </section>
+            <section className='polls-section'>
+                <div className='row head'>
+                    <h3>Manage Polls</h3>
+                    <div className='row tab-btns'>
+                        <button className='active'><Filter /> Filter</button>
+                        <button><CheckSquare />Active</button>
+                        <button><XSquare />Close</button>
+                    </div>
+                </div>
+                <div className='row sub-text caption'><Calendar />
+                    <p>Showing {polls.length} Polls
+                    </p>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            {/* <th>Created By</th> */}
+                            <th>Created</th>
+                            <th>End Date</th>
+                            <th><Users /></th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {polls.map((poll) => (
+                            <tr key={poll.id}>
+                                <td>
+                                    <div className="poll-title">
+                                        {poll.title}
+                                        <span className={`status ${poll.status.toLowerCase()}`}>
+                                            {poll.status}
+                                        </span>
+                                    </div>
+                                    <p className="poll-description">{poll.description}</p>
+                                </td>
+                                <td className='date caption'>{poll.created}</td>
+                                <td className='date caption'>{poll.endDate}</td>
+                                <td className='users-row'><Users /> {poll.participants}</td>
+                                <td>
+                                    {poll.status === "Active" ? (
+                                        <button className="action-btn close">❌ Close</button>
+                                    ) : (
+                                        <button className="action-btn activate">✅ Activate</button>
+                                    )}
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
             </section>
         </div >
     )
