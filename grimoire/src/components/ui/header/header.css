@@ -22,7 +22,14 @@ header .heading {
     gap: 10px;
     border-bottom: 1px solid rgb(223, 222, 222);
     align-items: center;
-    font-size: 13px;
+    font-weight: 700;
+    padding: 12px 10px;
+    /* font-size: 13px; */
+}
+header .heading a{
+    color: black;
+    font-family: inherit;
+    text-decoration: none;
 }
 
 header .nav {
