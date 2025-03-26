@@ -79,6 +79,7 @@ body>#root {
     background-color: var(--primary-btn-bg);
     color: white;
     border-radius: 10px;
+    border-style: none;
 }
 .row {
     display: flex;
