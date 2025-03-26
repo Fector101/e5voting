@@ -37,6 +37,15 @@ import Adminpanelpage from "./pages/Adminpanelpage";
 // }
 // /site-collection/
 function App() {
+const location = useLocation();
+
+    useEffect(
+        function () {
+            setHeaderState(false);
+        },
+        [location]
+    );
+
   const [header_state, setHeaderState] = useState(window.innerWidth > 500);
 
   function toggleHeader() {
