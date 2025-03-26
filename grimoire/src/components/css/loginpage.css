@@ -79,7 +79,7 @@ label {
 }
 
 .signin-btn {
-    background: #007bff;
+    background-color: var(--primary-btn-bg);
     color: white;
     border: none;
     padding: 10px;
