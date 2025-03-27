@@ -42,7 +42,7 @@ const location = useLocation();
     useEffect(
         function () {
 
-setBtnState(location.pathname !=="/")
+setBtnState(["/", "/login"].includes(location.pathname) !==)
 
             setHeaderState(false);
         },
