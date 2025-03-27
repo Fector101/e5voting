@@ -41,12 +41,16 @@ const location = useLocation();
 
     useEffect(
         function () {
+
+setBtnState(location!=="/")
+
             setHeaderState(false);
         },
         [location]
     );
 
   const [header_state, setHeaderState] = useState(window.innerWidth > 500);
+  const [btn_state, setBtnState] = useState(window.innerWidth > 500);
 
   function toggleHeader() {
     setHeaderState(prev => !prev);
@@ -84,9 +88,9 @@ const location = useLocation();
         */}
         <Route path="*" element={ <NotFoundpage redirect_path='/' timeout_secs={5}/>} /> 
       </Routes>
-      <button className="primary-btn" id="menu-btn" onClick={toggleHeader}>
+      {btn_state&&<button className="primary-btn" id="menu-btn" onClick={toggleHeader}>
         {header_state?<X/>:<Menu/>}
-        </button>
+        </button>}
       {/* <Footer/> */}
     </>
     // <div className="App">
