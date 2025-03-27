@@ -106,7 +106,7 @@ export default function Homepage({ top_movies_data__ }) {
                     <div className="row title-box">
                         <span>
                             <h3> Total Votes</h3>
-                            <strong>3</strong>
+                            <strong>273</strong>
                         </span>
                         <Vote className="badge green" />
                     </div>
@@ -119,7 +119,7 @@ export default function Homepage({ top_movies_data__ }) {
                     <div className="row title-box">
                         <span>
                             <h3> Active Polls</h3>
-                            <strong>3</strong>
+                            <strong>2</strong>
                         </span>
                         <Clock className="badge purple" />
                     </div>
