@@ -25,7 +25,7 @@ export default function Loginpage() {
                         <Mail className="icon" />
                         <input
                             type="email"
-                            placeholder="youremail@school.edu"
+                            placeholder="youremail@nsuk.edu.ng"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             required
