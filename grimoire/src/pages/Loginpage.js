@@ -17,7 +17,7 @@ export default function Loginpage() {
                 <div className="icon-circle">
                     <Vote/>
                 </div>
-                <h2>Student Vote</h2>
+                <h2>E3Voting</h2>
                 <p className="subtitle">Sign in to your account</p>
                 <form onSubmit={handleSubmit}>
                     <label>Email</label>
