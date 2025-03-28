@@ -63,7 +63,7 @@ export default function Adminpanelpage({ email, username, phone_no }) {
                 <div className='row head'>
                     <h3>Manage Polls</h3>
                     <div className='row tab-btns'>
-                        <button className='active'><Filter /> Filter</button>
+                        <button className='active'><Filter />All</button>
                         <button><CheckSquare />Active</button>
                         <button><XSquare />Close</button>
                     </div>
