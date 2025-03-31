@@ -50,16 +50,16 @@ const resolveModule = (resolveFn, filePath) => {
 module.exports = {
   dotenv: resolveApp('.env'),
   // appPath: resolveApp('.'),
-  appPath: path.resolve('grimoire'),
+  appPath: path.resolve('voting'),
 
   appBuild: resolveApp(buildPath),
-  appPublic: path.resolve('grimoire','public'),
-  appHtml: path.resolve('grimoire','public','index.html'),
+  appPublic: path.resolve('voting','public'),
+  appHtml: path.resolve('voting','public','index.html'),
   // appPublic: resolveApp('public'),
   // appHtml: resolveApp('public/index.html'),
   // appIndexJs: resolveModule(resolveApp, 'src/index'),
-  appIndexJs: path.resolve('grimoire','src/index.js'),
-  appSrc: path.resolve('grimoire','src'),
+  appIndexJs: path.resolve('voting','src/index.js'),
+  appSrc: path.resolve('voting','src'),
 
   appPackageJson: resolveApp('package.json'),
   appTsConfig: resolveApp('tsconfig.json'),
